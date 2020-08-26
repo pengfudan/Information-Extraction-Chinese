@@ -214,6 +214,8 @@ def init():
     test_y = []
 
     print('organizing train data')
+    if not os.path.exists('./data'):
+        os.mkdir('./data')
     f = open('./data/train_q&a.txt', 'w', encoding='utf-8')
     temp = 0
     for i in train_sen:
@@ -257,7 +259,7 @@ def init():
 
 def seperate():
     print('reading training data')
-    x_train = np.load('./data/train_x.npy')
+    x_train = np.load('./data/train_x.npy', allow_pickle=True)
 
     train_word = []
     train_pos1 = []
